@@ -16,7 +16,7 @@ You can then copy and paste any of the code you find here in the window that app
 
 If you have any trouble using this code, the .story files are in the project demos folder! Feel free to download them yourself and see if it helps solve your issue.
 
-## THE SOLUTIONS
+## THE SNIPPETS
 
 - [Fullscreen Background Image](#1-fullscreen-background-image)
 - [Fullscreen Button](#2-fullscreen-button)
