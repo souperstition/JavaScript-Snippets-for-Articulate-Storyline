@@ -18,12 +18,14 @@ If you have any trouble using this code, the .story files are in the project dem
 
 ## THE SNIPPETS
 
-- [Fullscreen Background Image](#1-fullscreen-background-image-demohttpsitsdanimeslfullscreen-bgstoryhtml)
-- [Fullscreen Button](#2-fullscreen-button-demohttpsitsdanimeslfullscreen-buttonstoryhtml)
+- [Fullscreen Background Image](#1-fullscreen-background-image)
+- [Fullscreen Button](#2-fullscreen-button)
 
 ---
 
-## 1. Fullscreen Background Image [demo](https://itsdani.me/sl/fullscreen-bg/story.html)
+## 1. Fullscreen Background Image 
+
+[demo](https://itsdani.me/sl/fullscreen-bg/story.html)
 
 ![fullscreen-bg](./images/03.%20fullscreen-bg.png)
 
@@ -47,7 +49,9 @@ document.body.setAttribute('style', `background: url(${href}); background-repeat
 [[top]](#javascript-snippets-for-articulate-storyline)
 
 
-## 2. Fullscreen Button [demo](https://itsdani.me/sl/fullscreen-button/story.html)
+## 2. Fullscreen Button 
+
+[demo](https://itsdani.me/sl/fullscreen-button/story.html)
 
 ![fullscreen-button](./images/04.%20go-fullscreen.png)
 
