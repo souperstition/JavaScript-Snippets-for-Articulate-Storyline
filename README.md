@@ -1,8 +1,10 @@
 # JAVASCRIPT SNIPPETS FOR ARTICULATE STORYLINE
 
-This is a collection of JavaScript that can be used in Articulate Storyline to make modifications otherwise unavailable within the software. This code has been tested in Articulate Storyline 3; if you are able to test in other versions please feel free to contribute your findings. 
+This is a collection of JavaScript that can be used in Articulate Storyline to make modifications otherwise unavailable within the software. The code currently focuses on making visual modifications, but suggestions are welcome. These snippets have been tested in Articulate Storyline 3; if you are able to test in other versions please feel free to contribute your findings. 
 
-To use any of this code, first add a new trigger on the desired slide (often the first slide of your project):
+## HOW TO USE 
+
+Add a new trigger on the desired slide (often the first slide of your project):
 
 ![create trigger](./images/01.%20create%20trigger.png)
 
