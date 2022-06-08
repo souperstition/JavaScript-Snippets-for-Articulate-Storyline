@@ -20,6 +20,7 @@ If you have any trouble using this code, the .story files are in the project dem
 
 - [Fullscreen Background Image](#1-fullscreen-background-image)
 - [Fullscreen Button](#2-fullscreen-button)
+- [Get Rid of the Player Border and Colors](#3-remove-the-border-and-player-background)
 
 ---
 
@@ -108,6 +109,24 @@ if (!document.body.querySelector('.added')) {
 	});
 }
 
+```
+
+[[top]](#javascript-snippets-for-articulate-storyline)
+
+## 3. Remove the Border and Player Background
+
+**What it does:** Gets rid of the border and background caused by the player window. Yes, this can be done in the player settings, but it takes a long time to do so. This bit of code added to your project takes care of it for you. You still have to make sure any unwanted buttons are turned off in the settings.
+
+```
+const frame = document.querySelector('#frame');
+frame.setAttribute(
+	'style',
+	`border-radius: 0;
+	border: none;
+	background-color: transparent;
+	width: 100%;
+	height: 100%;`
+);
 ```
 
 [[top]](#javascript-snippets-for-articulate-storyline)
