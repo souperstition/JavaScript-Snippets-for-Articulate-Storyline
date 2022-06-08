@@ -18,8 +18,8 @@ If you have any trouble using this code, the .story files are in the project dem
 
 ## THE SNIPPETS
 
-- [Fullscreen Background Image](#1-fullscreen-background-image)
-- [Fullscreen Button](#2-fullscreen-button)
+- [Fullscreen Background Image](#1-fullscreen-background-image-demohttpsitsdanimeslfullscreen-bgstoryhtml)
+- [Fullscreen Button](#2-fullscreen-button-demohttpsitsdanimeslfullscreen-buttonstoryhtml)
 
 ---
 
