@@ -72,8 +72,8 @@ If they each use different background images, then you can keep using the first 
 **What it does:** Adds a fullscreen button to your project. The styles can be changed to match the colors in your project. The button will appear at the top right of your slide (this can be changed in the styles section). Clicking the button will cause the entire slide to stretch to fill the screen, keeping the aspect ratio (which may result in a small bit of black space on the sides). I really wished for this feature when I was working in sites like Moodle, because the embed feature makes the slides far too small for mobile devices. Articulate 360 does apparently have a fullscreen button for mobile devices now, but as far as I'm aware this feature is not planned to be added to earlier versions.
 
 ```
-const slide = document.querySelector('#slide');
-
+const slide = document.querySelector('.slide-transition-container');
+const container = slide.querySelector('.slide');
 
 let fullscreen;
 let fsBtn = document.createElement('button');
@@ -103,6 +103,26 @@ const css = `
         background-color: rgba(255,255,255,0.2);
         color: #000;
     }
+
+    .slide-transition-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slide-transition-container .slide {
+        position: relative;
+        left: unset;
+        top: unset;
+    }
+
+    .slide-layer {
+        position: absolute;
+        top: 0;
+        left: unset;
+        margin: auto;
+    }
+
 `;
 const style = document.createElement('style');
 if (style.styleSheet) {
@@ -113,40 +133,29 @@ if (style.styleSheet) {
 document.querySelector('head').appendChild(style);
 fsBtn.classList.add('fs-button');
 
-const goFullScreen = () => {
-    if(slide.requestFullscreen){
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        // if we are in Fullscreen mode, the text should say Exit Fullscreen
+        fsBtn.innerHTML = 'Exit Fullscreen';
         slide.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        // if we are not in Fullscreen mode, the text should say Go Fullscreen
+			fsBtn.innerHTML = 'Go Fullscreen'; 
+          document.exitFullscreen();
+      }
     }
-    else if(slide.mozRequestFullScreen){
-        slide.mozRequestFullScreen();
-    }
-    else if(slide.webkitRequestFullscreen){
-        slide.webkitRequestFullscreen();
-    }
-    else if(slide.msRequestFullscreen){
-        slide.msRequestFullscreen();
-    }
-}
+  }
 
 // this class lets us know the button has been added so that if we revisit this slide we don't get a bunch of buttons
 fsBtn.classList.add('added'); 
 
 // if we don't already have a button on the page, go ahead and add it:
 if (!document.body.querySelector('.added')) { 
-	slide.appendChild(fsBtn); 
-	fsBtn.addEventListener('click', function(e) {
-		e.preventDefault();
-		if (!fullscreen) {
-			fullscreen = true;
-            goFullScreen();
-            // if we are in Fullscreen mode, the text should say Exit Fullscreen
-			fsBtn.innerHTML = 'Exit Fullscreen'; 
-		} else {
-			fullscreen = false;
-			document.exitFullscreen();
-            // if we are not in Fullscreen mode, the text should say Go Fullscreen
-			fsBtn.innerHTML = 'Go Fullscreen'; 
-		}
+	container.appendChild(fsBtn); 
+    fsBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleFullScreen();
     });
 }
 
