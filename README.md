@@ -1,6 +1,6 @@
 # JAVASCRIPT SNIPPETS FOR ARTICULATE STORYLINE
 
-This is a collection of JavaScript that can be used in Articulate Storyline to make modifications otherwise unavailable within the software. The code currently focuses on making visual modifications, but suggestions are welcome. These snippets have been tested in Articulate Storyline 3; if you are able to test in other versions please feel free to contribute your findings. 
+This is a collection of JavaScript that can be used in Articulate Storyline to make modifications otherwise unavailable within the software. The code currently focuses on making visual modifications, but suggestions are welcome. These snippets have been tested in Articulate Storyline 3; if you are able to test in other versions please feel free to contribute your findings.
 
 ## HOW TO USE 
 
@@ -18,17 +18,18 @@ If you have any trouble using this code, the .story files are in the project dem
 
 ## THE SNIPPETS
 
-- [Fullscreen Background Image](#1-fullscreen-background-image)
+- [Improved Fullscreen](#1-improved-fullscreen)
 - [Fullscreen Button](#2-fullscreen-button)
 - [Get Rid of the Player Border and Colors](#3-remove-the-border-and-player-background)
+- [APPENDIX: Most Common Selectors](#appendix-list-of-most-common-selectors)
 
 ---
 
-## 1. Fullscreen Background Image 
+## 1. Improved Fullscreen 
 
-[demo](https://itsdani.me/sl/fullscreen-bg/story.html)
+[demo](https://itsdani.me/sl/improved-fullscreen/story.html)
 
-![fullscreen-bg](./images/03.fullscreen-bg.png)
+![fullscreen-bg](./images/03.improved-fullscreen.png)
 
 **What it does:** Takes the background image you have added to your slide, removes it, and makes it the background image of the browser window, giving the project a fullscreen effect. The rest of the content is unchanged. 
 
@@ -37,10 +38,9 @@ I have seen similar solutions which require you to make your slide backgrounds t
 **NOTE:** This solution assumes that you are using the same background for each slide. This action will only take effect on the first slide, and any additional background images will also be removed.
 
 ```
-const slideContainer = document.querySelector('#slide-window');
-
-const bgImg = slideContainer.querySelector('image');
-
+const slideContainer2 = document.querySelector('.slide-transition-container');
+const bgSlideContainer = slideContainer2.querySelector('.slide');
+const bgImg = bgSlideContainer.querySelector('image');
 const href = bgImg.href.baseVal;
 
 bgImg.remove();
@@ -56,48 +56,76 @@ document.body.setAttribute('style', `background: url(${href}); background-repeat
 
 ![fullscreen-button](./images/04.go-fullscreen.png)
 
-**What it does:** Adds a fullscreen button to your project. The styles can be changed to match the colors in your project, but do note that hover effects are unavailable without additional JavaScript.
-
-**NOTE:** This does not resize your project. It basically does the same thing as pressing F11 on your keyboard, with one important difference: If the project is embedded; for example, in an LMS, it will allow the project to be seen in full screen without the LMS wrapper. I also find that having a button is much easier than having to tell students they can press f11, etc.. Not to mention mobile devices which don't have this option! 
-
-Also make sure that in your Player settings under "Other", you have it set to scale the player to fill the browser window. Otherwise your browser window will go full screen, but the project will stay the same size.
+**What it does:** Adds a fullscreen button to your project. The styles can be changed to match the colors in your project. The button will appear at the top right of your slide (this can be changed in the styles section). Clicking the button will cause the entire slide to stretch to fill the screen, keeping the aspect ratio (which may result in a small bit of black space on the sides). I really wished for this feature when I was working in sites like Moodle, because the embed feature makes the slides far too small for mobile devices. Articulate 360 does apparently have a fullscreen button for mobile devices now, but as far as I'm aware this feature is not planned to be added to earlier versions.
 
 ```
+const slide = document.querySelector('#slide');
+
+
 let fullscreen;
 let fsBtn = document.createElement('button');
 fsBtn.innerHTML = 'Go Fullscreen';
 
-// STYLES: 
-fsBtn.setAttribute(
-	'style',
-	'position: relative; 
-     top: 20px; 
-     left: 100%; 
-     transform: translateX(calc(-100% - 20px)); 
-     z-index: 11; 
-     border: 1px solid #fff; 
-     border-radius: 5px; 
-     font-size: 1.5rem; 
-     padding: 0.5rem 0.7em; 
-     background-color: rgba(0,0,0,0.2); 
-     color: #fff; 
-     font-family: Verdana, Geneva, Tahoma, sans-serif; 
-     -webkit-font-smoothing: antialiased; 
-     cursor: pointer; 
-     transition: all .3s;'
-);
+// STYLES:
+const css = `
+    .fs-button {
+        position: absolute; 
+        top: 20px; 
+        right: 20px; 
+        z-index: 11; 
+        border: 1px solid #fff; 
+        border-radius: 5px; 
+        font-size: 1.5rem; 
+        padding: 0.5rem 0.7em; 
+        background-color: rgba(0,0,0,0.2); 
+        color: #fff; 
+        font-family: Verdana, Geneva, Tahoma, sans-serif; 
+        -webkit-font-smoothing: antialiased; 
+        cursor: pointer; 
+        transition: all .3s;
+        width: max-content;
+    }
+
+    .fs-button:hover {
+        background-color: rgba(255,255,255,0.2);
+        color: #000;
+    }
+`;
+const style = document.createElement('style');
+if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+} else {
+    style.appendChild(document.createTextNode(css));
+}
+document.querySelector('head').appendChild(style);
+fsBtn.classList.add('fs-button');
+
+const goFullScreen = () => {
+    if(slide.requestFullscreen){
+        slide.requestFullscreen();
+    }
+    else if(slide.mozRequestFullScreen){
+        slide.mozRequestFullScreen();
+    }
+    else if(slide.webkitRequestFullscreen){
+        slide.webkitRequestFullscreen();
+    }
+    else if(slide.msRequestFullscreen){
+        slide.msRequestFullscreen();
+    }
+}
 
 // this class lets us know the button has been added so that if we revisit this slide we don't get a bunch of buttons
 fsBtn.classList.add('added'); 
 
 // if we don't already have a button on the page, go ahead and add it:
 if (!document.body.querySelector('.added')) { 
-	document.body.appendChild(fsBtn); 
+	slide.appendChild(fsBtn); 
 	fsBtn.addEventListener('click', function(e) {
 		e.preventDefault();
 		if (!fullscreen) {
 			fullscreen = true;
-			document.documentElement.requestFullscreen();
+            goFullScreen();
             // if we are in Fullscreen mode, the text should say Exit Fullscreen
 			fsBtn.innerHTML = 'Exit Fullscreen'; 
 		} else {
@@ -106,7 +134,7 @@ if (!document.body.querySelector('.added')) {
             // if we are not in Fullscreen mode, the text should say Go Fullscreen
 			fsBtn.innerHTML = 'Go Fullscreen'; 
 		}
-	});
+    });
 }
 
 ```
@@ -114,6 +142,8 @@ if (!document.body.querySelector('.added')) {
 [[top]](#javascript-snippets-for-articulate-storyline)
 
 ## 3. Remove the Border and Player Background
+
+[demo](https://itsdani.me/sl/invisible-player/story.html)
 
 **What it does:** Gets rid of the border and background caused by the player window. Yes, this can be done in the player settings, but it takes a long time to do so. This bit of code added to your project takes care of it for you. You still have to make sure any unwanted buttons are turned off in the settings.
 
@@ -123,10 +153,54 @@ frame.setAttribute(
 	'style',
 	`border-radius: 0;
 	border: none;
-	background-color: transparent;
+	background: transparent;
 	width: 100%;
 	height: 100%;`
 );
+```
+
+[[top]](#javascript-snippets-for-articulate-storyline)
+
+## APPENDIX: List of Most Common Selectors
+
+**What it does:** This is a list of items that can be selected via javascript and altered in some way. There are definitely more, but these are the ones I've found most useful. I listed them in nested order, from top level down. I skipped containers that do not alter the style in any way.
+
+```
+// 1. wrapper: the div that contains all the slide content
+const wrapper = document.querySelector('#wrapper');
+
+// 2. frame: nested inside wrapper, this also contains all the slide content
+const frame = document.querySelector('#frame');
+
+// 3. slide: another container
+const slide = document.querySelector('#slide');
+
+// 4. main: the purpose for selecting this is to get "slideContainer2", because it has the same class name as "main" and therefore the querySelector will pick up this one before it picks up the other one
+const main = document.querySelector('main');
+
+// 5. slideWindow: another container
+const slideWindow = document.querySelector('#slide-window');
+
+// 6. slideContainer: another container
+const slideContainer = main.querySelector('.slide-container');
+
+// 7. slideContainer2: another container
+const slideContainer2 = document.querySelector('.slide-transition-container');
+
+// 8. bgSlideContainer: finally, a div that has something useful
+const bgSlideContainer = slideContainer2.querySelector('.slide');
+
+// 9. bgImg = the image tag which contains the slide's background image
+const bgImg = bgSlideContainer.querySelector('image');
+
+// 10. href = the URL of the background image
+const href = bgImg.href.baseVal;
+
+// 11. slideContainer3: the last main container which contains all the slide objects
+const slideContainer3 = document.querySelector('.slide-layer');
+
+// 12. slideObject: this will select the FIRST item in the previous container with the class name "slide-object"
+const slideObject = slideContainer3.querySelector('.slide-object');
 ```
 
 [[top]](#javascript-snippets-for-articulate-storyline)
