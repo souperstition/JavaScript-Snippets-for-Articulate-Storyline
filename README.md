@@ -6,19 +6,11 @@ This is a collection of JavaScript that can be used in Articulate Storyline to m
 
 Add a new trigger on the desired slide (often the first slide of your project):
 
-<<<<<<< HEAD
 ![create trigger](./images/01.create-trigger.png)
 
 Next, change the first field to "Execute JavaScript" and click "Add/Edit JavaScript":
 
 ![execute javascript](./images/02.execute-javascript.png)
-=======
-![](https://github.com/souperstition/JavaScript-Snippets-for-Articulate-Storyline/blob/master/images/01.%20create%20trigger.png?)
-
-Next, change the first field to "Execute JavaScript" and click "Add/Edit JavaScript":
-
-![](https://github.com/souperstition/JavaScript-Snippets-for-Articulate-Storyline/blob/master/images/02.%20execute%20javascript.png?)
->>>>>>> 3ad0a36364d8e3b14f18b244e06bd5527602909c
 
 You can then copy and paste any of the code you find here in the window that appears. Now, anytime you preview your project it will tell you that JavaScript preview is not available. You will have to publish your project to see any of the changes.
 
@@ -36,11 +28,7 @@ If you have any trouble using this code, the .story files are in the project dem
 
 [demo](https://itsdani.me/sl/fullscreen-bg/story.html)
 
-<<<<<<< HEAD
 ![fullscreen-bg](./images/03.fullscreen-bg.png)
-=======
-![](https://github.com/souperstition/JavaScript-Snippets-for-Articulate-Storyline/blob/master/images/03.%20fullscreen-bg.png?)
->>>>>>> 3ad0a36364d8e3b14f18b244e06bd5527602909c
 
 **What it does:** Takes the background image you have added to your slide, removes it, and makes it the background image of the browser window, giving the project a fullscreen effect. The rest of the content is unchanged. 
 
@@ -66,11 +54,7 @@ document.body.setAttribute('style', `background: url(${href}); background-repeat
 
 [demo](https://itsdani.me/sl/fullscreen-button/story.html)
 
-<<<<<<< HEAD
 ![fullscreen-button](./images/04.go-fullscreen.png)
-=======
-![](https://github.com/souperstition/JavaScript-Snippets-for-Articulate-Storyline/blob/master/images/04.%20go-fullscreen.png?)
->>>>>>> 3ad0a36364d8e3b14f18b244e06bd5527602909c
 
 **What it does:** Adds a fullscreen button to your project. The styles can be changed to match the colors in your project, but do note that hover effects are unavailable without additional JavaScript.
 
