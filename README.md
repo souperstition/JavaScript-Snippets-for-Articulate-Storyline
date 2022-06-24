@@ -15,6 +15,7 @@ If you have any trouble using this code, the .story files are in the project dem
 - [Improved Fullscreen](#1-improved-fullscreen)
 - [Fullscreen Button](#2-fullscreen-button)
 - [Get Rid of the Player Border and Colors](#3-remove-the-border-and-player-background)
+- [Random Background Color](#4-random-background-color-button)
 - [APPENDIX: Most Common Selectors](#appendix-list-of-most-common-selectors)
 
 ---
@@ -23,7 +24,7 @@ If you have any trouble using this code, the .story files are in the project dem
 
 [demo](https://itsdani.me/sl/improved-fullscreen/story.html)
 
-![fullscreen-bg](./images/03.improved-fullscreen.png)
+![fullscreen-bg](./images/02.improved-fullscreen.png)
 
 **What it does:** Takes the background image you have added to your slide, removes it, and makes it the background image of the browser window, giving the project a fullscreen effect. The rest of the content is unchanged. 
 
@@ -61,7 +62,7 @@ If each slide uses a different background image, then add the first snippet on e
 
 [demo](https://itsdani.me/sl/fullscreen-button/story.html)
 
-![fullscreen-button](./images/04.go-fullscreen.png)
+![fullscreen-button](./images/03.go-fullscreen.png)
 
 **What it does:** Adds a fullscreen button to your project. The styles can be changed to match the colors in your project. The button will appear at the top right of your slide (this can be changed in the styles section). Clicking the button will cause the entire slide to stretch to fill the screen, keeping the aspect ratio (which may result in a small bit of black space on the sides). I really wished for this feature when I was working in sites like Moodle, because the embed feature makes the slides far too small for mobile devices. Articulate 360 does apparently have a fullscreen button for mobile devices now, but as far as I'm aware this feature is not planned to be added to earlier versions.
 
@@ -173,6 +174,73 @@ frame.setAttribute(
 	width: 100%;
 	height: 100%;`
 );
+```
+
+[[top]](#javascript-snippets-for-articulate-storyline)
+
+## 4. Random Background Color Button
+
+[demo](https://itsdani.me/sl/random-bg/story.html)
+
+![random-bg](./images/04.random-bg.png)
+
+**What it does:** Adds a clickable button that will change the page background to a random color. Note that any text on the slide will not change color, so transparent slide backgrounds are not recommended. 
+
+```
+const slide = document.querySelector('.slide-transition-container');
+const container = slide.querySelector('.slide');
+
+const css = `
+.bg-btn {
+    background-color: #ffffff;
+    color: #aaaaaa;
+    opacity: 0.5;
+    border: 0px solid transparent;
+    border-radius: 50%;
+    font-size: 2em;
+    padding: 0.25em 0.4em;
+    position: absolute;
+    bottom: 20px;
+    right: 20px; cursor: pointer;
+    transition: opacity 300ms;
+    font-family: Arial, sans-serif;
+}
+
+.bg-btn:hover {
+    opacity: 1;
+}
+`;
+const style = document.createElement('style');
+if (style.styleSheet) {
+	style.styleSheet.cssText = css;
+} else {
+	style.appendChild(document.createTextNode(css));
+}
+document.querySelector('head').appendChild(style);
+
+const bgBtn = document.createElement('button');
+bgBtn.innerHTML = '&#128397;';
+
+const possibleColorValues = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f' ];
+
+const generateRandomColor = () => {
+	const baseVal = [ 0, 0, 0, 0, 0, 0 ];
+	let str = '#';
+	for (val of baseVal) {
+		str += `${possibleColorValues[Math.floor(Math.random() * (16 + 1))]}`;
+	}
+	return str;
+};
+
+bgBtn.classList.add('bg-btn');
+if (!document.body.querySelector('.bg-btn')) {
+	container.appendChild(bgBtn);
+	bgBtn.addEventListener('click', function(e) {
+		e.preventDefault();
+		document.body.style.backgroundColor = generateRandomColor();
+	});
+}
+
 ```
 
 [[top]](#javascript-snippets-for-articulate-storyline)
