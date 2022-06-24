@@ -58,7 +58,7 @@ const bgImg = bgSlideContainer.querySelector('image');
 bgImg.remove();
 ```
 
-If they each use different background images, then you can keep using the first trigger on each slide.
+If each slide uses a different background image, then add the first snippet on each slide.
 
 [[top]](#javascript-snippets-for-articulate-storyline)
 
