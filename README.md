@@ -4,13 +4,7 @@ This is a collection of JavaScript that can be used in Articulate Storyline to m
 
 ## HOW TO USE 
 
-Add a new trigger on the desired slide (often the first slide of your project):
-
-![create trigger](./images/01.create-trigger.png)
-
-Next, change the first field to "Execute JavaScript" and click "Add/Edit JavaScript":
-
-![execute javascript](./images/02.execute-javascript.png)
+![create trigger](./images/01.howto.png)
 
 You can then copy and paste any of the code you find here in the window that appears. Now, anytime you preview your project it will tell you that JavaScript preview is not available. You will have to publish your project to see any of the changes.
 
