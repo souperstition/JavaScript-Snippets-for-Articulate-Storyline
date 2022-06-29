@@ -2,7 +2,7 @@
 
 This is a collection of JavaScript that can be used in Articulate Storyline to make modifications otherwise unavailable within the software. The code currently focuses on making visual modifications, but suggestions are welcome. These snippets have been tested in Articulate Storyline 3; if you are able to test in other versions please feel free to contribute your findings.
 
-## HOW TO USE 
+## :question: HOW TO USE 
 
 ![create trigger](./images/01.howto.png)
 
@@ -10,7 +10,7 @@ You can then copy and paste any of the code you find here in the window that app
 
 If you have any trouble using this code, the .story files are in the project demos folder! Feel free to download them yourself and see if it helps solve your issue.
 
-## THE SNIPPETS
+## :scissors: THE SNIPPETS
 
 - [Improved Fullscreen](#1-improved-fullscreen)
 - [Fullscreen Button](#2-fullscreen-button)
@@ -22,7 +22,7 @@ If you have any trouble using this code, the .story files are in the project dem
 
 ## 1. Improved Fullscreen 
 
-[demo](https://itsdani.me/sl/improved-fullscreen/story.html)
+💻 [demo](https://itsdani.me/sl/improved-fullscreen/story.html)
 
 ![fullscreen-bg](./images/02.improved-fullscreen.png)
 
@@ -46,7 +46,7 @@ document.body.setAttribute('style', `background: url(${href}); background-repeat
 If the remaining slides all use the same background image as the first one, you can add the following trigger to each slide so you don't get a duplicate:
 
 ```
-const slideContainer2 = document.querySelector('.slide-transition-container');
+const [:top:(top)](#)slideContainer2 = document.querySelector('.slide-transition-container');
 const bgSlideContainer = slideContainer2.querySelector('.slide');
 const bgImg = bgSlideContainer.querySelector('image');
 
@@ -55,16 +55,18 @@ bgImg.remove();
 
 If each slide uses a different background image, then add the first snippet on each slide.
 
-[[top]](#javascript-snippets-for-articulate-storyline)
+:top: [[top]](#javascript-snippets-for-articulate-storyline)
 
 
 ## 2. Fullscreen Button 
 
-[demo](https://itsdani.me/sl/fullscreen-button/story.html)
+💻 [demo](https://itsdani.me/sl/fullscreen-button/story.html)
 
 ![fullscreen-button](./images/03.go-fullscreen.png)
 
 **What it does:** Adds a fullscreen button to your project. The styles can be changed to match the colors in your project. The button will appear at the top right of your slide (this can be changed in the styles section). Clicking the button will cause the entire slide to stretch to fill the screen, keeping the aspect ratio (which may result in a small bit of black space on the sides). I really wished for this feature when I was working in sites like Moodle, because the embed feature makes the slides far too small for mobile devices. Articulate 360 does apparently have a fullscreen button for mobile devices now, but as far as I'm aware this feature is not planned to be added to earlier versions.
+
+**Note:** In some cases, the project will load new slides on top of the button, hiding it from view. I have not found another workaround for this aside from adding the code to each slide.
 
 ```
 const slide = document.querySelector('.slide-transition-container');
@@ -156,11 +158,11 @@ if (!document.body.querySelector('.added')) {
 
 ```
 
-[[top]](#javascript-snippets-for-articulate-storyline)
+:top: [[top]](#javascript-snippets-for-articulate-storyline)
 
 ## 3. Remove the Border and Player Background
 
-[demo](https://itsdani.me/sl/invisible-player/story.html)
+💻 [demo](https://itsdani.me/sl/invisible-player/story.html)
 
 **What it does:** Gets rid of the border and background caused by the player window. Yes, this can be done in the player settings, but it takes a long time to do so. This bit of code added to your project takes care of it for you. You still have to make sure any unwanted buttons are turned off in the settings.
 
@@ -176,11 +178,11 @@ frame.setAttribute(
 );
 ```
 
-[[top]](#javascript-snippets-for-articulate-storyline)
+:top: [[top]](#javascript-snippets-for-articulate-storyline)
 
 ## 4. Random Background Color Button
 
-[demo](https://itsdani.me/sl/random-bg/story.html)
+💻 [demo](https://itsdani.me/sl/random-bg/story.html)
 
 ![random-bg](./images/04.random-bg.png)
 
@@ -243,7 +245,7 @@ if (!document.body.querySelector('.bg-btn')) {
 
 ```
 
-[[top]](#javascript-snippets-for-articulate-storyline)
+:top: [[top]](#javascript-snippets-for-articulate-storyline)
 
 ## APPENDIX: List of Most Common Selectors
 
@@ -287,4 +289,4 @@ const slideContainer3 = document.querySelector('.slide-layer');
 const slideObject = slideContainer3.querySelector('.slide-object');
 ```
 
-[[top]](#javascript-snippets-for-articulate-storyline)
+:top: [[top]](#javascript-snippets-for-articulate-storyline)
