@@ -12,11 +12,11 @@ If you have any trouble using this code, the .story files are in the project dem
 
 ## :scissors: THE SNIPPETS
 
-- [Improved Fullscreen](#star2-improved-fullscreen-topjavascript-snippets-for-articulate-storyline)
-- [Fullscreen Button](#zap-fullscreen-button-topjavascript-snippets-for-articulate-storyline)
-- [Get Rid of the Player Border and Colors](#fire-remove-the-border-and-player-background-topjavascript-snippets-for-articulate-storyline)
-- [Random Background Color](#rainbow-random-background-color-button-topjavascript-snippets-for-articulate-storyline)
-- [APPENDIX: Most Common Selectors](#notebookwithdecorativecover-appendix-list-of-most-common-selectors-topjavascript-snippets-for-articulate-storyline)
+- [Improved Fullscreen](#star2-improved-fullscreen-topjavascript-snippets-for-articulate-storyline-top)
+- [Fullscreen Button](#zap-fullscreen-button-topjavascript-snippets-for-articulate-storyline-top)
+- [Get Rid of the Player Border and Colors](#fire-remove-the-border-and-player-background-topjavascript-snippets-for-articulate-storyline-top)
+- [Random Background Color](#rainbow-random-background-color-button-topjavascript-snippets-for-articulate-storyline-top)
+- [APPENDIX: Most Common Selectors](#notebookwithdecorativecover-appendix-list-of-most-common-selectors-topjavascript-snippets-for-articulate-storyline-top)
 
 ---
 
