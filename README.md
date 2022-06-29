@@ -17,7 +17,7 @@ If you have any trouble using this code, the .story files are in the project dem
 - [Fullscreen Button](#zap-fullscreen-button-top)
 - [Get Rid of the Player Border and Colors](#fire-remove-the-border-and-player-background-top)
 - [Random Background Color](#rainbow-random-background-color-button-top)
-- [APPENDIX: Most Common Selectors](#notebookwithdecorativecover-appendix-list-of-most-common-selectors-top)
+- [APPENDIX: Most Common Selectors](#notebook_with_decorative_cover-appendix-list-of-most-common-selectors-top)
 
 ---
 
