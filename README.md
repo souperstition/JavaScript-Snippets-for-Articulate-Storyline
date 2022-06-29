@@ -2,7 +2,7 @@
 
 This is a collection of JavaScript that can be used in Articulate Storyline to make modifications otherwise unavailable within the software. The code currently focuses on making visual modifications, but suggestions are welcome. These snippets have been tested in Articulate Storyline 3; if you are able to test in other versions please feel free to contribute your findings.
 
-## :question: HOW TO USE 
+## :mag_right: HOW TO USE 
 
 ![create trigger](./images/01.howto.png)
 
@@ -12,15 +12,15 @@ If you have any trouble using this code, the .story files are in the project dem
 
 ## :scissors: THE SNIPPETS
 
-- [Improved Fullscreen](#1-improved-fullscreen)
-- [Fullscreen Button](#2-fullscreen-button)
-- [Get Rid of the Player Border and Colors](#3-remove-the-border-and-player-background)
-- [Random Background Color](#4-random-background-color-button)
-- [APPENDIX: Most Common Selectors](#appendix-list-of-most-common-selectors)
+- [Improved Fullscreen](#star2-improved-fullscreen-topjavascript-snippets-for-articulate-storyline)
+- [Fullscreen Button](#zap-fullscreen-button-topjavascript-snippets-for-articulate-storyline)
+- [Get Rid of the Player Border and Colors](#fire-remove-the-border-and-player-background-topjavascript-snippets-for-articulate-storyline)
+- [Random Background Color](#rainbow-random-background-color-button-topjavascript-snippets-for-articulate-storyline)
+- [APPENDIX: Most Common Selectors](#notebookwithdecorativecover-appendix-list-of-most-common-selectors-topjavascript-snippets-for-articulate-storyline)
 
 ---
 
-## 1. Improved Fullscreen 
+##  :star2: Improved Fullscreen [:top:](#javascript-snippets-for-articulate-storyline) 
 
 💻 [demo](https://itsdani.me/sl/improved-fullscreen/story.html)
 
@@ -55,10 +55,8 @@ bgImg.remove();
 
 If each slide uses a different background image, then add the first snippet on each slide.
 
-:top: [[top]](#javascript-snippets-for-articulate-storyline)
+## :zap: Fullscreen Button [:top:](#javascript-snippets-for-articulate-storyline)
 
-
-## 2. Fullscreen Button 
 
 💻 [demo](https://itsdani.me/sl/fullscreen-button/story.html)
 
@@ -158,9 +156,8 @@ if (!document.body.querySelector('.added')) {
 
 ```
 
-:top: [[top]](#javascript-snippets-for-articulate-storyline)
+## :fire: Remove the Border and Player Background [:top:](#javascript-snippets-for-articulate-storyline)
 
-## 3. Remove the Border and Player Background
 
 💻 [demo](https://itsdani.me/sl/invisible-player/story.html)
 
@@ -178,9 +175,8 @@ frame.setAttribute(
 );
 ```
 
-:top: [[top]](#javascript-snippets-for-articulate-storyline)
+## :rainbow: Random Background Color Button [:top:](#javascript-snippets-for-articulate-storyline)
 
-## 4. Random Background Color Button
 
 💻 [demo](https://itsdani.me/sl/random-bg/story.html)
 
@@ -245,9 +241,8 @@ if (!document.body.querySelector('.bg-btn')) {
 
 ```
 
-:top: [[top]](#javascript-snippets-for-articulate-storyline)
 
-## APPENDIX: List of Most Common Selectors
+## :notebook_with_decorative_cover: APPENDIX: List of Most Common Selectors [:top:](#javascript-snippets-for-articulate-storyline)
 
 **What it does:** This is a list of items that can be selected via javascript and altered in some way. There are definitely more, but these are the ones I've found most useful. I listed them in nested order, from top level down. I skipped containers that do not alter the style in any way.
 
